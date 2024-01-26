@@ -1,7 +1,7 @@
 package com.bid.auction.global.response;
 
-import com.bid.auction.global.enums.status_code.BaseCode;
-import com.bid.auction.global.enums.status_code.SuccessStatus;
+import com.bid.auction.global.enums.statuscode.BaseCode;
+import com.bid.auction.global.enums.statuscode.SuccessStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
