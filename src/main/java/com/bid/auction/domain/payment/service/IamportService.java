@@ -17,11 +17,11 @@ import jakarta.annotation.PostConstruct;
 
 @Service
 public class IamportService {
-	@Value("${IAMPORT_STORE_ID}")
+	@Value("${iamport.store-id}")
 	private String iamportStoreId;
-	@Value("${IAMPORT_API_KEY}")
+	@Value("${iamport.api-key}")
 	private String iamportApiKey;
-	@Value("${IAMPORT_API_SECRET}")
+	@Value("${iamport.api-secret}")
 	private String iamportApiSecret;
 	private IamportClient client;
 
