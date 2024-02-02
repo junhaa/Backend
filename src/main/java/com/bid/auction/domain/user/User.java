@@ -32,5 +32,6 @@ public class User {
 	private Long id;
 
 	@OneToMany(mappedBy = "paidUser", cascade = CascadeType.ALL, orphanRemoval = true)
+	@Builder.Default
 	private List<Payment> userPayments = new ArrayList<>();
 }
