@@ -44,7 +44,13 @@ public enum ErrorStatus implements BaseCode {
 		return message;
 	}
 
-	public HttpStatus getHttpStatus() {
+	@Override
+	public HttpStatus getStatus() {
 		return httpStatus;
+	}
+
+	@Override
+	public Integer getStatusValue() {
+		return httpStatus.value();
 	}
 }
