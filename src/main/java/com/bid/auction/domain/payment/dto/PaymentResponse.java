@@ -17,20 +17,20 @@ public class PaymentResponse {
 	@AllArgsConstructor
 	@Builder
 	public static class PaymentCompleteResponse {
-		@Schema(name = "Payment ID", type = "int", example = "1", description = "결제 데이터 PK")
+		@Schema(type = "int", example = "1", description = "결제 데이터 PK")
 		private Long paymentId;
-		@Schema(name = "Payment Amount", type = "int", example = "4000", description = "결제 금액")
+		@Schema(type = "int", example = "4000", description = "결제 금액")
 		private Integer paymentAmount;
-		@Schema(name = "Payment Method", type = "string", example = "card", description = "결제 수단")
+		@Schema(type = "string", example = "card", description = "결제 수단")
 		private PaymentMethod paymentMethod;
-		@Schema(name = "Requested At", type = "string", example = "2024-02-01T15:30:00", description = "결제 요청 일시")
+		@Schema(type = "string", example = "2024-02-01T15:30:00", description = "결제 요청 일시")
 		private LocalDateTime requestedAt;
-		@Schema(name = "Approved At", type = "string", example = "2024-02-01T15:30:00", description = "결제 승인 일시")
+		@Schema(type = "string", example = "2024-02-01T15:30:00", description = "결제 승인 일시")
 		private LocalDateTime approvedAt;
-		@Schema(name = "PG Payment Order ID", type = "string", example = "imp_245402750188",
+		@Schema(type = "string", example = "imp_245402750188",
 			description = "처리 완료된 결제 PG사 고유번호")
 		private String pgPaymentOrderUid;
-		@Schema(name = "Merchant Payment Order ID", type = "string", example = "1_productOrder_uuid18",
+		@Schema(type = "string", example = "1_productOrder_uuid18",
 			description = "처리 완료된 결제 서비스 고유번호")
 		private String merchantPaymentOrderUid;
 	}
