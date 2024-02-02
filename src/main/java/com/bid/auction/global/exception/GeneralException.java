@@ -19,6 +19,6 @@ public class GeneralException extends RuntimeException {
 	}
 
 	public HttpStatus getHttpStatus() {
-		return errorStatus.getHttpStatus();
+		return errorStatus.getStatus();
 	}
 }
