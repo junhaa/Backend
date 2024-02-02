@@ -28,7 +28,37 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        
+    - name: make application.yml
+      run: |
+        mkdir -p src/main/resources
+        echo "$APPLICATION" > src/main/resources/application.yml
+      env:
+          APPLICATION: ${{ secrets.APPLICATION }}
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      run: ./gradlew build -x test
+
+    - name: Docker build
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker build -t app .
+        docker tag app ${{ secrets.DOCKER_USERNAME }}/bid:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/bid:latest
+
+    - name: Deploy
+      uses: appleboy/ssh-action@master
       with:
-        arguments: build
+        host: ${{ secrets.HOST }} 
+        username: ubuntu
+        key: ${{ secrets.PRIVATE_KEY }} 
+        script: |
+          docker pull ${{ secrets.DOCKER_USERNAME }}/bid:latest
+          docker stop $(docker ps -a -q)
+          docker run -d --log-driver=syslog -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod ${{ secrets.DOCKER_USERNAME }}/bid:latest
+          docker rm $(docker ps --filter 'status=exited' -a -q)
+          docker image prune -a -f
+   
