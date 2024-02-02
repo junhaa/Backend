@@ -26,4 +26,14 @@ public enum SuccessStatus implements BaseCode {
 	public String getMessage() {
 		return message;
 	}
+
+	@Override
+	public HttpStatus getStatus() {
+		return httpStatus;
+	}
+
+	@Override
+	public Integer getStatusValue() {
+		return httpStatus.value();
+	}
 }
