@@ -11,6 +11,8 @@ import com.bid.auction.domain.payment.dto.PaymentRequest.PaymentVerificationRequ
 import com.bid.auction.domain.payment.dto.PaymentResponse.PaymentCompleteResponse;
 import com.bid.auction.domain.payment.service.PaymentCommandService;
 import com.bid.auction.domain.payment.service.PaymentQueryService;
+import com.bid.auction.global.enums.statuscode.ApiErrorCode;
+import com.bid.auction.global.enums.statuscode.ErrorStatus;
 import com.bid.auction.global.enums.statuscode.SuccessStatus;
 import com.bid.auction.global.response.ApiResponse;
 import com.siot.IamportRestClient.exception.IamportResponseException;
@@ -27,12 +29,6 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "결제 관련 API")
-@ApiResponses({
-	@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON500",
-		description = "서버 에러, 관리자에게 문의 바랍니다."),
-	@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON400", description = "잘못된 요청입니다."),
-	@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON401", description = "인증이 필요합니다."),
-	@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON403", description = "금지된 요청입니다.")})
 public class PaymentController {
 	private final PaymentQueryService paymentQueryService;
 
@@ -51,6 +47,7 @@ public class PaymentController {
 			example = "1_productOrder_uuid18"),
 		@Parameter(name = "status", description = "PG사 결제 요청 처리 상태", example = "paid")
 	})
+	@ApiErrorCode(ErrorStatus.class)
 	@ApiResponses({
 		@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON204",
 			description = "응답 데이터 없음, 정상 처리",
@@ -62,7 +59,7 @@ public class PaymentController {
 		IamportResponseException,
 		IOException {
 		paymentCommandService.savePaymentOrder(orderResult);
-		return ApiResponse.of(SuccessStatus._ACCEPTED, null);
+		return ApiResponse.of(true, SuccessStatus._ACCEPTED, null);
 	}
 
 	@Operation(summary = "결제 완료 처리 API",
@@ -77,15 +74,10 @@ public class PaymentController {
 			description = "서비스 서버에서 부여하는 결제 데이터 고유번호, {User PK}_{Payment Type}_{uid} 형식",
 			example = "1_productOrder_uuid18")
 	})
-	@ApiResponses({
-		@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",
-			description = "정상 결제 완료 처리",
-			content = @Content(schema = @Schema(implementation = ApiResponse.class))),
-		@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "PAYMENT_ORDER4001",
-			description = """
-				결제 요청 결과가 PG사로부터 서비스 서버에 전달되지 못했거나,
-				프론트에서 유효하지 않은 merchant_uid를 요청함
-				""", content = @Content(schema = @Schema(implementation = ApiResponse.class)))})
+	@ApiErrorCode(ErrorStatus.class)
+	@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",
+		description = "정상 결제 완료 처리",
+		content = @Content(schema = @Schema(implementation = ApiResponse.class)))
 	@PostMapping("/payment")
 	public ApiResponse<PaymentCompleteResponse> completePayment(@RequestBody PaymentVerificationRequest request) throws
 		IamportResponseException,
