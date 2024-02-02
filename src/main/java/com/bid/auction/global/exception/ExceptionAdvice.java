@@ -24,7 +24,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 	@ExceptionHandler
 	public ResponseEntity<Object> handlingException(Exception exception, WebRequest request) {
 		return handleExceptionInternal(exception, ErrorStatus._INTERNAL_SERVER_ERROR, HttpHeaders.EMPTY,
-			ErrorStatus._INTERNAL_SERVER_ERROR.getHttpStatus(), request, exception.getMessage());
+			ErrorStatus._INTERNAL_SERVER_ERROR.getStatus(), request, exception.getMessage());
 	}
 
 	private ResponseEntity<Object> handleExceptionInternal(GeneralException exception, HttpHeaders headers,
