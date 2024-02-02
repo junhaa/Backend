@@ -76,8 +76,7 @@ public class PaymentController {
 	})
 	@ApiErrorCode(ErrorStatus.class)
 	@io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200",
-		description = "정상 결제 완료 처리",
-		content = @Content(schema = @Schema(implementation = ApiResponse.class)))
+		description = "정상 결제 완료 처리")
 	@PostMapping("/payment")
 	public ApiResponse<PaymentCompleteResponse> completePayment(@RequestBody PaymentVerificationRequest request) throws
 		IamportResponseException,
