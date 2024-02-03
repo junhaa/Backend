@@ -21,4 +21,5 @@ public class UserQueryService {
 	public boolean isUserExist(Long userId) {
 		return userRepository.findById(userId).isPresent();
 	}
+
 }

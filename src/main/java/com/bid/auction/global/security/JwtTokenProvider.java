@@ -29,13 +29,13 @@ public class JwtTokenProvider {
 
     private final RedisTemplate<String, String> redisTemplate;
 
-    @Value("${spring.jwt.secret}")
+    @Value("${jwt.secret}")
     private String secretKey;
 
-    @Value("${spring.jwt.token.access-expiration-time}")
+    @Value("${jwt.access-token-period}")
     private long accessExpirationTime;
 
-    @Value("${spring.jwt.token.refresh-expiration-time}")
+    @Value("${jwt.refresh-token-period}")
     private long refreshExpirationTime;
 
     @Autowired
