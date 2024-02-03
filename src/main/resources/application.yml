@@ -1,0 +1,70 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://bid.c9y6oosooafq.ap-northeast-2.rds.amazonaws.com:3306/auction
+    username: admin
+    password: adminadmin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 200MB
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.MariaDB106Dialect
+    hibernate:
+      format_sql: true
+      ddl-auto: update
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+
+
+cloud:
+  aws:
+    s3:
+      bucket: bid-auction-bucket
+    path:
+      postImage: auctionPosts/images
+    credentials:
+          access-key: AKIAVRUVQH5EAGXJRGU6
+          secret-key: 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
+    region:
+          static: ap-northeast-2
+          auto: false
+    stack:
+          auto: false
+
+iamport:
+  store-id: 5586626333704252
+  api-key: imp52108063
+  api-secret: ZJza35WRNjBrQbxjKkORdEFsZcanb6KgBFlWPo3FGJSVSzJmUq0Mpo4ygdjgSqCclN816KVewtwWwBCa
+
+jwt:
+    header: Authorization
+    secret: 2a10q42lY7Y18xqrFt1qbODZIO4OMTeOxnrCe7tF3n9bazJinVE7VH5Pi
+    access-token-period: 1800000000000000000
+    refresh-token-period: 1209600000000
+    reissue-token-period: 2592000000000
+
+
+data:
+  redis:
+  host: redis # 로컬에서 테스트 할 때는 localhost로 사용
+  port: 6379
