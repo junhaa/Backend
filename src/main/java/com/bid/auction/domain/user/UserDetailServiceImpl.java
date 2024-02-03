@@ -11,27 +11,29 @@ import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.bid.auction.global.enums.statuscode.ErrorStatus.INVALID_USER_NUM;
+
 @Service
 @Log4j2
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-//    @Override
-//    public UserDetails loadUserByUsername(String num) throws GeneralException {
-//        User user = userRepository.findByNum(num)
-//                .orElseThrow(() -> {
-//                    log.error(INVALID_USER_NUM.getMessage());
-//                    return new GeneralException(INVALID_USER);
-//                });
-//
-//        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-//        return new org
-//                .springframework
-//                .security
-//                .core
-//                .userdetails
-//                .User(user.getNum(), user.getPassword(), grantedAuthorities);
-//    }
+    @Override
+    public UserDetails loadUserByUsername(String num) throws GeneralException {
+        User user = userRepository.findByName(num)
+                .orElseThrow(() -> {
+                    log.error(INVALID_USER_NUM.getMessage());
+                    return new GeneralException(INVALID_USER_NUM);
+                });
+
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        return new org
+                .springframework
+                .security
+                .core
+                .userdetails
+                .User(user.getName(), user.getPassword(), grantedAuthorities);
+    }
 }
 

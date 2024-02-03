@@ -31,6 +31,11 @@ public class User {
 	@Column(name = "user_id")
 	private Long id;
 
+	@Column(nullable = false)
+	private String name;
+	@Column(nullable = false)
+	private String password;
+
 	@OneToMany(mappedBy = "paidUser", cascade = CascadeType.ALL, orphanRemoval = true)
 	@Builder.Default
 	private List<Payment> userPayments = new ArrayList<>();
