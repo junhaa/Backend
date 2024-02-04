@@ -27,7 +27,9 @@ public enum ErrorStatus implements BaseCode {
 	REDIS_ERROR(HttpStatus.BAD_REQUEST, "REDIS ERROR", "REDIS ERROR"),
 	INVALID_JWT(HttpStatus.BAD_REQUEST, "INVALID_JWT", "INVALID_JWT"),
 	EXPIRED_JWT(HttpStatus.BAD_REQUEST, "EXPIRED_JWT", "EXPIRED_JWT"),
-	INVALID_USER_NUM(HttpStatus.BAD_REQUEST, "NVALID_USER_NUM", "NVALID_USER_NUM");
+	INVALID_USER_NUM(HttpStatus.BAD_REQUEST, "NVALID_USER_NUM", "NVALID_USER_NUM"),
+
+	NOT_EXIST_REFRESH_JWT(HttpStatus.BAD_REQUEST, "NOT_EXIST_REFRESH_JWT", "NOT_EXIST_REFRESH_JWT");
 	private final HttpStatus httpStatus;
 	private final String code;
 	private final String message;
