@@ -1,9 +1,8 @@
 package com.bid.auction.domain.payment.converter;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import static com.bid.auction.global.util.DateTimeConverter.*;
+
 import java.util.Arrays;
-import java.util.Date;
 
 import com.bid.auction.domain.payment.dto.PaymentResponse.PaymentCompleteResponse;
 import com.bid.auction.domain.payment.dto.PaymentVerificationResponse;
@@ -61,10 +60,6 @@ public class PaymentConverter {
 			.pgPaymentOrderUid(payment.getPgPaymentUid())
 			.merchantPaymentOrderUid(payment.getMerchantPaymentUid())
 			.build();
-	}
-
-	private static LocalDateTime toLocalDateTime(Date date) {
-		return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
 	}
 
 	private static PaymentOrderStatus convertPaymentStatus(String status) {
