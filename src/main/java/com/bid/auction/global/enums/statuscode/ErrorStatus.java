@@ -14,6 +14,7 @@ public enum ErrorStatus implements BaseCode {
 
 	// payment
 	_UNEQUAL_ACTUAL_PAYMENT_AMOUNT(HttpStatus.BAD_REQUEST, "PAYMENT4001", "실 결제 금액과 결제 주문 금액이 다릅니다. 위변조 되었을 수 있습니다."),
+	_PAYMENT_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT4002", "해당 결제 내역이 존재하지 않습니다."),
 
 	// payment status
 	_PAYMENT_METHOD_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_METHOD4001", "유효하지 않은 결제 수단입니다."),
