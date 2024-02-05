@@ -30,6 +30,8 @@ public enum ErrorStatus implements BaseCode {
 	_INVALID_CATEGORY(HttpStatus.BAD_REQUEST, "AUCTION_POST4003", "잘못된 카테고리 입니다."),
 	_NOT_POSITIVE_NUMBER(HttpStatus.BAD_REQUEST, "AUCTIONPOST4004", "음수일 수 없습니다."),
 	_INVALID_ENUM_VALUE(HttpStatus.BAD_REQUEST, "AUCTIONPOST4005", "지원하지 않는 필드 값입니다."),
+	_AUCTION_POST_NOT_FOUND(HttpStatus.BAD_REQUEST, "AUCTIONPOST4006", "유효하지 않은 상품 게시물입니다."),
+	_INVALID_ENUM_VALUE(HttpStatus.BAD_REQUEST, "AUCTIONPOST4005", "지원하지 않는 필드 값입니다."),
 
 	REDIS_ERROR(HttpStatus.BAD_REQUEST, "REDIS ERROR", "REDIS ERROR"),
 	INVALID_JWT(HttpStatus.BAD_REQUEST, "INVALID_JWT", "INVALID_JWT"),
@@ -58,13 +60,7 @@ public enum ErrorStatus implements BaseCode {
 		return message;
 	}
 
-	@Override
-	public HttpStatus getStatus() {
+	public HttpStatus getHttpStatus() {
 		return httpStatus;
-	}
-
-	@Override
-	public Integer getStatusValue() {
-		return httpStatus.value();
 	}
 }
