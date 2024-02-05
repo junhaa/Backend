@@ -9,6 +9,8 @@ import com.bid.auction.domain.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,6 +37,7 @@ public class PaymentOrder {
 	@Column(nullable = false)
 	private Integer paymentOrderAmount;
 	@Column(nullable = false)
+	@Enumerated(value = EnumType.STRING)
 	private PaymentOrderStatus orderStatus;
 
 	@CreatedDate
