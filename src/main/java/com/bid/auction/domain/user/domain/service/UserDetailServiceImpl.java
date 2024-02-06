@@ -22,8 +22,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String num) throws GeneralException {
-        User user = userRepository.findByName(num)
+    public UserDetails loadUserByUsername(String name) throws GeneralException {
+        User user = userRepository.findByName(name)
                 .orElseThrow(() -> {
                     log.error(INVALID_USER_NUM.getMessage());
                     return new GeneralException(INVALID_USER_NUM);
