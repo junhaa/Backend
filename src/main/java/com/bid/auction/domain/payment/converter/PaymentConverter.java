@@ -11,7 +11,7 @@ import com.bid.auction.domain.payment.entity.Payment;
 import com.bid.auction.domain.payment.entity.PaymentOrder;
 import com.bid.auction.domain.payment.enums.PaymentMethod;
 import com.bid.auction.domain.payment.enums.PaymentOrderStatus;
-import com.bid.auction.domain.user.User;
+import com.bid.auction.domain.user.domain.entity.User;
 import com.bid.auction.global.enums.statuscode.ErrorStatus;
 import com.bid.auction.global.exception.GeneralException;
 

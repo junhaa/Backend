@@ -1,4 +1,4 @@
-package com.bid.auction.domain.user;
+package com.bid.auction.domain.user.domain.entity;
 
 import java.util.ArrayList;
 import java.util.List;

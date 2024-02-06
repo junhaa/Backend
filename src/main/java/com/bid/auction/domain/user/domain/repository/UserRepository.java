@@ -1,5 +1,6 @@
-package com.bid.auction.domain.user;
+package com.bid.auction.domain.user.domain.repository;
 
+import com.bid.auction.domain.user.domain.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

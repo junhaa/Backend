@@ -1,5 +1,7 @@
-package com.bid.auction.domain.user;
+package com.bid.auction.domain.user.domain.service;
 
+import com.bid.auction.domain.user.domain.entity.User;
+import com.bid.auction.domain.user.domain.repository.UserRepository;
 import com.bid.auction.global.exception.GeneralException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;

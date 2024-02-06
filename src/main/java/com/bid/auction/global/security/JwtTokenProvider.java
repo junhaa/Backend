@@ -1,6 +1,6 @@
 package com.bid.auction.global.security;
 
-import com.bid.auction.domain.user.UserDetailServiceImpl;
+import com.bid.auction.domain.user.domain.service.UserDetailServiceImpl;
 import com.bid.auction.global.exception.GeneralException;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.HttpServletRequest;

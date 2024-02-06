@@ -13,8 +13,8 @@ import com.bid.auction.domain.payment.entity.Payment;
 import com.bid.auction.domain.payment.entity.PaymentOrder;
 import com.bid.auction.domain.payment.repository.PaymentOrderRepository;
 import com.bid.auction.domain.payment.repository.PaymentRepository;
-import com.bid.auction.domain.user.User;
-import com.bid.auction.domain.user.UserQueryService;
+import com.bid.auction.domain.user.domain.entity.User;
+import com.bid.auction.domain.user.domain.service.UserQueryService;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 
 import lombok.RequiredArgsConstructor;
