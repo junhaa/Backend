@@ -26,6 +26,7 @@ public class RefundConverter {
 			.reason(request.getReason())
 			.requestedAt(requestedAt)
 			.requestedUser(payment.getPaidUser())
+			.payment(payment)
 			.build();
 	}
 
@@ -37,6 +38,7 @@ public class RefundConverter {
 			.pgUid(payment.getImpUid())
 			.merchantUid(payment.getMerchantUid())
 			.amount(payment.getAmount().intValue())
+			.reason(payment.getCancelReason())
 			.refundedAt(DateTimeConverter
 				.toLocalDateTime(payment.getCancelledAt()))
 			.refundRequestedAt(requestedAt)
