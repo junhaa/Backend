@@ -9,7 +9,8 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.bid.auction.global.enums.statuscode.ErrorStatus;
+import com.bid.auction.global.enums.statuscode.BaseCode;
+import com.bid.auction.global.enums.statuscode.error.CommonErrorStatus;
 import com.bid.auction.global.response.ApiResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,8 +24,8 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler
 	public ResponseEntity<Object> handlingException(Exception exception, WebRequest request) {
-		return handleExceptionInternal(exception, ErrorStatus._INTERNAL_SERVER_ERROR, HttpHeaders.EMPTY,
-			ErrorStatus._INTERNAL_SERVER_ERROR.getStatus(), request, exception.getMessage());
+		return handleExceptionInternal(exception, CommonErrorStatus.INTERNAL_SERVER_ERROR, HttpHeaders.EMPTY,
+			CommonErrorStatus.INTERNAL_SERVER_ERROR.getStatus(), request, exception.getMessage());
 	}
 
 	private ResponseEntity<Object> handleExceptionInternal(GeneralException exception, HttpHeaders headers,
@@ -34,7 +35,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 		return super.handleExceptionInternal(exception, body, headers, exception.getHttpStatus(), webRequest);
 	}
 
-	private ResponseEntity<Object> handleExceptionInternal(Exception exception, ErrorStatus errorStatus,
+	private ResponseEntity<Object> handleExceptionInternal(Exception exception, BaseCode errorStatus,
 		HttpHeaders headers, HttpStatus status, WebRequest request, String errorPoint) {
 		ApiResponse<String> body = ApiResponse.onFailure(errorStatus.getCode(), errorStatus.getMessage(), errorPoint);
 		return super.handleExceptionInternal(exception, body, headers, status, request);
