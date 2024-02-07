@@ -22,8 +22,15 @@ public enum ErrorStatus implements BaseCode {
 	_PAYMENT_ORDER_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_ORDER4001", "해당 결제 주문이 존재하지 않습니다."),
 
 	// payment order status
-	_PAYMENT_ORDER_STATUS_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_ORDER_STATUS4001", "유효하지 않은 결제 주문 상태입니다.");
+	_PAYMENT_ORDER_STATUS_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_ORDER_STATUS4001", "유효하지 않은 결제 주문 상태입니다."),
 
+	REDIS_ERROR(HttpStatus.BAD_REQUEST, "REDIS ERROR", "REDIS ERROR"),
+	INVALID_JWT(HttpStatus.BAD_REQUEST, "INVALID_JWT", "INVALID_JWT"),
+	EXPIRED_JWT(HttpStatus.BAD_REQUEST, "EXPIRED_JWT", "EXPIRED_JWT"),
+	INVALID_USER_NUM(HttpStatus.BAD_REQUEST, "NVALID_USER_NUM", "NVALID_USER_NUM"),
+	INVALID_USER_PW(HttpStatus.BAD_REQUEST, "INVALID_USER_PW", "INVALID_USER_PW"),
+
+	NOT_EXIST_REFRESH_JWT(HttpStatus.BAD_REQUEST, "NOT_EXIST_REFRESH_JWT", "NOT_EXIST_REFRESH_JWT");
 	private final HttpStatus httpStatus;
 	private final String code;
 	private final String message;

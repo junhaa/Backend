@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.bid.auction.domain.payment.enums.PaymentOrderStatus;
-import com.bid.auction.domain.user.User;
+import com.bid.auction.domain.user.domain.entity.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

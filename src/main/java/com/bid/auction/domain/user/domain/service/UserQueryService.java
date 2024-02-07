@@ -1,5 +1,7 @@
-package com.bid.auction.domain.user;
+package com.bid.auction.domain.user.domain.service;
 
+import com.bid.auction.domain.user.domain.entity.User;
+import com.bid.auction.domain.user.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,4 +23,5 @@ public class UserQueryService {
 	public boolean isUserExist(Long userId) {
 		return userRepository.findById(userId).isPresent();
 	}
+
 }

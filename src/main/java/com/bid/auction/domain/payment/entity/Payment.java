@@ -3,7 +3,7 @@ package com.bid.auction.domain.payment.entity;
 import java.time.LocalDateTime;
 
 import com.bid.auction.domain.payment.enums.PaymentMethod;
-import com.bid.auction.domain.user.User;
+import com.bid.auction.domain.user.domain.entity.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
