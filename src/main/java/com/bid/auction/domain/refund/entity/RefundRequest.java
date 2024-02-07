@@ -16,7 +16,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,7 +36,6 @@ public class RefundRequest {
 	private PaymentMethod refundMethod;
 	@Enumerated(value = EnumType.STRING)
 	@Column(nullable = false)
-
 	private RefundStatus status;
 
 	@Column(nullable = false)
@@ -48,12 +46,10 @@ public class RefundRequest {
 	private LocalDateTime requestedAt;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	@Column(nullable = false)
 	private User requestedUser;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "payment_id")
-	@Column(nullable = false)
 	private Payment payment;
 
 	@Builder
@@ -64,7 +60,8 @@ public class RefundRequest {
 		String reason,
 		LocalDateTime requestedAt,
 		User requestedUser,
-		Payment payment) {
+		Payment payment
+	) {
 		this.amount = amount;
 		this.refundMethod = refundMethod;
 		this.status = status;
@@ -72,5 +69,9 @@ public class RefundRequest {
 		this.requestedAt = requestedAt;
 		this.requestedUser = requestedUser;
 		this.payment = payment;
+	}
+
+	public void complete() {
+		this.status = RefundStatus.REFUND;
 	}
 }
