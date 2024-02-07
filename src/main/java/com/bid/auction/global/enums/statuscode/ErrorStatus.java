@@ -23,7 +23,10 @@ public enum ErrorStatus implements BaseCode {
 	_PAYMENT_ORDER_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_ORDER4001", "해당 결제 주문이 존재하지 않습니다."),
 
 	// payment order status
-	_PAYMENT_ORDER_STATUS_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_ORDER_STATUS4001", "유효하지 않은 결제 주문 상태입니다.");
+	_PAYMENT_ORDER_STATUS_NOT_FOUND(HttpStatus.BAD_REQUEST, "PAYMENT_ORDER_STATUS4001", "유효하지 않은 결제 주문 상태입니다."),
+
+	// refund request
+	_REFUND_REQUEST_NOT_FOUND(HttpStatus.BAD_REQUEST, "REFUND_REQUEST4001", "해당 환불 요청이 존재하지 않습니다");
 
 	private final HttpStatus httpStatus;
 	private final String code;
