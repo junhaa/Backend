@@ -34,8 +34,7 @@ public class Refund {
 	private LocalDateTime refundRequestedAt;
 
 	@OneToOne
-	@Column(nullable = false)
-	@JoinColumn(name = "refund_request_id")
+	@JoinColumn(name = "refund_request_id", referencedColumnName = "refund_request_id")
 	private RefundRequest request;
 
 	@Builder
