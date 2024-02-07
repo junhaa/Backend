@@ -16,7 +16,7 @@ import com.bid.auction.domain.refund.entity.Refund;
 import com.bid.auction.domain.refund.entity.RefundRequest;
 import com.bid.auction.domain.refund.repository.RefundRepository;
 import com.bid.auction.domain.refund.repository.RefundRequestRepository;
-import com.bid.auction.global.enums.statuscode.ErrorStatus;
+import com.bid.auction.global.enums.statuscode.error.RefundErrorStatus;
 import com.bid.auction.global.exception.GeneralException;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 
@@ -52,7 +52,7 @@ public class RefundCommandService {
 			.findPaymentByMerchantUid(response.getMerchantUid());
 		RefundRequest request = refundRequestRepository
 			.findByPayment(payment)
-			.orElseThrow(() -> new GeneralException(ErrorStatus._REFUND_REQUEST_NOT_FOUND));
+			.orElseThrow(() -> new GeneralException(RefundErrorStatus.REFUND_REQUEST_NOT_FOUND));
 		request.complete();
 		Refund refund = RefundConverter.toRefund(request, response);
 		return refundRepository.save(refund);
