@@ -1,4 +1,4 @@
-package com.bid.auction.domain.refund.service;
+package com.bid.auction.domain.refund.domain.service;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -10,12 +10,12 @@ import com.bid.auction.domain.payment.converter.RefundConverter;
 import com.bid.auction.domain.payment.entity.Payment;
 import com.bid.auction.domain.payment.service.IamportService;
 import com.bid.auction.domain.payment.service.PaymentQueryService;
-import com.bid.auction.domain.refund.dto.RefundRequestOrder;
-import com.bid.auction.domain.refund.dto.RefundResponse.PgRefundResponse;
-import com.bid.auction.domain.refund.entity.Refund;
-import com.bid.auction.domain.refund.entity.RefundRequest;
-import com.bid.auction.domain.refund.repository.RefundRepository;
-import com.bid.auction.domain.refund.repository.RefundRequestRepository;
+import com.bid.auction.domain.refund.domain.entity.Refund;
+import com.bid.auction.domain.refund.domain.entity.RefundRequest;
+import com.bid.auction.domain.refund.domain.repository.RefundRepository;
+import com.bid.auction.domain.refund.domain.repository.RefundRequestRepository;
+import com.bid.auction.domain.refund.presentation.dto.RefundRequestOrder;
+import com.bid.auction.domain.refund.presentation.dto.RefundResponse.PgRefundResponse;
 import com.bid.auction.global.enums.statuscode.error.RefundErrorStatus;
 import com.bid.auction.global.exception.GeneralException;
 import com.siot.IamportRestClient.exception.IamportResponseException;

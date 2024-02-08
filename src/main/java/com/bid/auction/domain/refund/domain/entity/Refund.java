@@ -1,4 +1,4 @@
-package com.bid.auction.domain.refund.entity;
+package com.bid.auction.domain.refund.domain.entity;
 
 import java.time.LocalDateTime;
 
