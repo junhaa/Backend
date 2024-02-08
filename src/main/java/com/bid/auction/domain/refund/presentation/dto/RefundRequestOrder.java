@@ -1,4 +1,4 @@
-package com.bid.auction.domain.refund.dto;
+package com.bid.auction.domain.refund.presentation.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,11 +1,11 @@
-package com.bid.auction.domain.refund.entity;
+package com.bid.auction.domain.refund.domain.entity;
 
 import java.time.LocalDateTime;
 
 import com.bid.auction.domain.payment.entity.Payment;
 import com.bid.auction.domain.payment.enums.PaymentMethod;
-import com.bid.auction.domain.refund.enums.RefundStatus;
-import com.bid.auction.domain.user.User;
+import com.bid.auction.domain.refund.domain.enums.RefundStatus;
+import com.bid.auction.domain.user.domain.entity.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

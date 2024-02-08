@@ -1,4 +1,4 @@
-package com.bid.auction.domain.refund;
+package com.bid.auction.domain.refund.presentation;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bid.auction.domain.payment.converter.RefundConverter;
 import com.bid.auction.domain.payment.entity.Payment;
 import com.bid.auction.domain.payment.service.PaymentQueryService;
-import com.bid.auction.domain.refund.dto.RefundRequestOrder;
-import com.bid.auction.domain.refund.dto.RefundResponse.PgRefundResponse;
-import com.bid.auction.domain.refund.dto.RefundResponse.RefundSuccessResponse;
-import com.bid.auction.domain.refund.entity.Refund;
-import com.bid.auction.domain.refund.entity.RefundRequest;
-import com.bid.auction.domain.refund.service.RefundCommandService;
+import com.bid.auction.domain.refund.domain.entity.Refund;
+import com.bid.auction.domain.refund.domain.entity.RefundRequest;
+import com.bid.auction.domain.refund.domain.service.RefundCommandService;
+import com.bid.auction.domain.refund.presentation.dto.RefundRequestOrder;
+import com.bid.auction.domain.refund.presentation.dto.RefundResponse.PgRefundResponse;
+import com.bid.auction.domain.refund.presentation.dto.RefundResponse.RefundSuccessResponse;
 import com.bid.auction.global.response.ApiResponse;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 
