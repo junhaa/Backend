@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import com.bid.auction.domain.payment.entity.Payment;
-import com.bid.auction.domain.refund.dto.RefundRequestOrder;
-import com.bid.auction.domain.refund.dto.RefundResponse.PgRefundResponse;
-import com.bid.auction.domain.refund.dto.RefundResponse.RefundSuccessResponse;
-import com.bid.auction.domain.refund.entity.Refund;
-import com.bid.auction.domain.refund.entity.RefundRequest;
-import com.bid.auction.domain.refund.enums.RefundStatus;
+import com.bid.auction.domain.refund.domain.entity.Refund;
+import com.bid.auction.domain.refund.domain.entity.RefundRequest;
+import com.bid.auction.domain.refund.domain.enums.RefundStatus;
+import com.bid.auction.domain.refund.presentation.dto.RefundRequestOrder;
+import com.bid.auction.domain.refund.presentation.dto.RefundResponse.PgRefundResponse;
+import com.bid.auction.domain.refund.presentation.dto.RefundResponse.RefundSuccessResponse;
 import com.bid.auction.global.util.DateTimeConverter;
 import com.siot.IamportRestClient.request.CancelData;
 
