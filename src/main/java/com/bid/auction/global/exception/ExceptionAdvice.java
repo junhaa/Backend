@@ -16,6 +16,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.bid.auction.global.enums.statuscode.BaseCode;
+import com.bid.auction.global.enums.statuscode.ErrorStatus;
 import com.bid.auction.global.enums.statuscode.error.CommonErrorStatus;
 import com.bid.auction.global.response.ApiResponse;
 
@@ -81,6 +82,6 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 		ErrorStatus errorCommonStatus, WebRequest request, Map<String, String> errorArgs) {
 		ApiResponse<Object> body = ApiResponse.onFailure(errorCommonStatus.getCode(), errorCommonStatus.getMessage(),
 			errorArgs);
-		return super.handleExceptionInternal(e, body, headers, errorCommonStatus.getHttpStatus(), request);
+		return super.handleExceptionInternal(e, body, headers, errorCommonStatus.getStatus(), request);
 	}
 }
