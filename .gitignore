@@ -42,3 +42,6 @@ src/main/resources/*.yml
 
 **/src/*.properties
 **/src/*.yml
+
+*.pem
+*.html

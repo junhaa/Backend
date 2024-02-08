@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,9 +15,24 @@ import lombok.Getter;
 @JsonPropertyOrder({"isSuccess", "code", "message", "result"})
 public class ApiResponse<T> {
 
+	@Schema(
+		type = "boolean",
+		description = "요청 처리 성공 여부",
+		example = "true"
+	)
 	@JsonProperty("isSuccess")
 	private final Boolean isSuccess;
+	@Schema(
+		type = "string",
+		description = "서비스 정의 응답 코드",
+		example = "COMMON200"
+	)
 	private final String code;
+	@Schema(
+		type = "string",
+		description = "응답 메시지",
+		example = "성공입니다."
+	)
 	private final String message;
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private T result;
