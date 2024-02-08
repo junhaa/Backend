@@ -50,6 +50,10 @@ dependencies {
 
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
+    // aws
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
+
     // com.sun.xml.bind
     implementation 'com.sun.xml.bind:jaxb-impl:4.0.1'
     implementation 'com.sun.xml.bind:jaxb-core:4.0.1'
