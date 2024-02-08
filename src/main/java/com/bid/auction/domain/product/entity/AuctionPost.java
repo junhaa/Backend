@@ -10,7 +10,7 @@ import com.bid.auction.domain.bid.entity.Bid;
 import com.bid.auction.domain.product.common.BaseEntity;
 import com.bid.auction.domain.product.enums.AuctionStatus;
 import com.bid.auction.domain.product.enums.ProductCondition;
-import com.bid.auction.domain.user.User;
+import com.bid.auction.domain.user.domain.entity.User;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -92,9 +92,9 @@ public class AuctionPost extends BaseEntity {
 	@JoinColumn(name = "product_category_id")
 	private ProductCategory productCategory;
 
-	// @ManyToOne(fetch = FetchType.LAZY)
-	// @JoinColumn(name = "user_id")
-	// private User seller;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User seller;
 
 	@Override
 	public String toString() {
