@@ -1,4 +1,4 @@
-package com.bid.auction.domain.payment.controller;
+package com.bid.auction.domain.payment.presentation;
 
 import java.io.IOException;
 
